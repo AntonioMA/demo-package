@@ -15,24 +15,24 @@
   });
 
   chat.addEventListener('click', function(e) {
+    var secondsNow = Math.ceil(Date.now() / 1000);
     var server = conf.server;
     var hostUUID = conf.hostUUID;
     var eventId = conf.eventId;
     var guests = [conf.guest];
     var appointmentData = {
-      startTime: Date.now(),
-      endTime: Date.now() + 3600,
+      startTime: secondsNow,
+      endTime: secondsNow + 3600,
       description: conf.description,
     };
 
     Request.putAppointment(server, hostUUID, eventId, appointmentData, guests).
       then(aResults => {
-        alert(aResults);
         chat.classList.add('selectMenu');
         home.classList.remove('selectMenu');
         document.getElementById('ourCompany-part').classList.add('hidden');
         var iframe = document.querySelector('#opentok iframe');
-        iframe.src = server + '/waitingRoom/' + aResults.url;
+        iframe.src = server + aResults[0].url;
         document.getElementById('opentok').classList.remove('hidden');
     }).catch(e => {
       console.error('Error adding appointment:', e);
