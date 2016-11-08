@@ -3,7 +3,7 @@
 
   var conf = {};
 
-  LazyLoader.getJSON('conf.json').then(function(pConf) {
+  LazyLoader.getJSON('../conf.json').then(function(pConf) {
     conf = pConf;
     document.getElementById('guest').textContent = conf.guest;
   });
