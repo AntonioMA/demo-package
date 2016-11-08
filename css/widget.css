@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic);
+html,
+body {
+  font-family: "Open Sans";
+}
+
+.main-background, .card {
+  background-color: transparent;
+  border-width: 0;
+}
+
+.toolbar .record,
+.toolbar .recordings {
+  display: none;
+}
+.stream-toolbar .item.strikethrough .icon:after {
+  background-color: red;
+}
+.add-appointment {
+  display: none;
+}
+/* Waiting page */
+.waiting .title {
+  font-size: 0;
+}
+.waiting .title:before {
+  content: 'Welcome';
+  font-size: 3.5rem;
+}
+.waiting .description {
+  font-size: 0;
+}
+.waiting .description:before {
+  content: 'other party will be here shortly...';
+  font-size: 2.5rem;
+}
+.waiting .logo {
+  display: none;
+}
+.next-guest-join {
+  right: 16px;
+  top: 14px;
+}
